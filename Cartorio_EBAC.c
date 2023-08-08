@@ -22,10 +22,11 @@ int registro()
 	char nome[40];
 	char sobrenome[40];
 	char cargo[40];
+	int novo_registro = 0;
 	
 	setlocale(LC_ALL, "Portuguese");//definifndo linguagem
 	
-	printf("Digite o CPF a ser cadastrado: ");
+	printf("\nDigite o CPF a ser cadastrado: ");
 	scanf("%s", cpf);
 	
 	strcpy(arquivo, cpf); //Responsavel por copiar os valores das string
@@ -66,10 +67,20 @@ int registro()
 	
 	file = fopen(arquivo, "a");
 	fprintf(file,cargo);
+	
 	fclose(file);	
 	
-    system("pause");
-
+	
+	printf("\n\nDeseja incluir mais algum nome (Sim digite 1 ou digite 2 para voltar ao menu principal)? ");
+	scanf("%d",&novo_registro);
+	
+	if(novo_registro == 1) //Volta ao registro de nomes
+	{
+		novo_registro = 0;
+		registro();
+	}
+	
+	
 }
 
 int consulta()
@@ -133,7 +144,7 @@ int main()
 	{	
 		int opcao=0; //definindo variáveis
 		int laco=1;
-		
+				
 		for (laco=1;laco=1;)
 		{
 		
@@ -172,7 +183,7 @@ int main()
 					system("pause");
 				break;
 			}
-			
+				
 			
 		}
 		
